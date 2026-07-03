@@ -193,7 +193,7 @@ Those corrections made the project better because they moved the work from “te
 
 ---
 
-## What I would improve next
+## What I would improve next since Rome wasn't built in a day
 
 - Add a small Splunk or Elastic version of the same detections.
 - Convert the detection notes into formal Sigma rules.
