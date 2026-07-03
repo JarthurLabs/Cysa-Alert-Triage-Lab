@@ -17,7 +17,7 @@ Security operations + alert triage + vulnerability prioritization + incident res
 
 This project is a small SOC-style investigation using synthetic logs from a fictional healthcare SaaS company called **HarborCare**. I built it to show how I would move from raw alerts to a defensible analyst decision: what happened, why it matters, what evidence supports it, and what I would recommend next.
 
-I kept the scope realistic for a recent CySA+ certificate holder. This is not an exploit lab, and it is not meant to make me look like a senior incident responder. The point is to show practical analyst habits: log review, alert triage, basic detection logic, vulnerability prioritization, incident documentation, and clear communication.
+I kept the scope realistic for my current Soc Analyst knowledge and will iterate on this in the future. This is not an exploit lab, and it is not meant to make me look like a senior incident responder. The point is to show practical analyst habits: log review, alert triage, basic detection logic, vulnerability prioritization, incident documentation, and clear communication.
 
 ---
 
