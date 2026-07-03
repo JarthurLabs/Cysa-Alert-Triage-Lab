@@ -1,0 +1,57 @@
+# Sigma-inspired detection notes for this lab.
+# These are intentionally readable instead of tool-specific.
+
+- id: AUTH-001
+  title: Possible password spray against VPN
+  status: experimental
+  log_source: auth_events.csv
+  logic: same src_ip has login_failure events across 5 or more unique users within 20 minutes
+  false_positives:
+    - broken password manager rollout
+    - shared office NAT with multiple users typing old passwords
+  response:
+    - check for successful login after the spray
+    - block source IP if clearly malicious
+    - notify identity owner and review conditional access logs
+  mitre_attack: T1110.003 Password Spraying
+
+- id: AUTH-002
+  title: MFA fatigue followed by approval
+  status: experimental
+  log_source: auth_events.csv
+  logic: 2 or more denied MFA prompts followed by an approved login from an unknown device within 20 minutes
+  false_positives:
+    - user testing a new phone
+    - delayed push notifications causing repeated prompts
+  response:
+    - revoke sessions
+    - require password reset
+    - verify with user using trusted contact method
+  mitre_attack: T1621 Multi-Factor Authentication Request Generation
+
+- id: WEB-001
+  title: Sensitive export from scripted user agent
+  status: experimental
+  log_source: web_access_events.csv
+  logic: export or report download path accessed by curl or python-requests with large response size
+  false_positives:
+    - approved automation job not documented in asset inventory
+    - support engineer performing sanctioned export
+  response:
+    - confirm business justification
+    - check previous auth context
+    - preserve export logs and data scope
+  mitre_attack: T1530 Data from Cloud Storage / T1005 Data from Local System
+
+- id: EDR-001
+  title: Encoded PowerShell launched by web worker process
+  status: high-confidence
+  log_source: endpoint_events.csv
+  logic: parent_process is w3wp.exe and process is powershell.exe and command_line contains EncodedCommand
+  false_positives:
+    - rare; validate application deployment tooling before containment
+  response:
+    - isolate host if confirmed
+    - preserve process, network, and file evidence
+    - review web application access immediately before process creation
+  mitre_attack: T1059.001 PowerShell

@@ -1,0 +1,5 @@
+asset_id,name,owner,environment,internet_exposed,asset_criticality,business_context
+HC-SRV-APP01,Client Portal App Server,Application Team,prod,yes,high,Customer-facing healthcare scheduling portal
+HC-SRV-DB01,Client Portal Database,Data Platform,prod,no,critical,Stores scheduling and account metadata; sample lab contains no real PHI
+HC-VPN-01,Remote Access VPN,IT Operations,prod,yes,high,Employee remote access
+HC-LT-044,Managed Laptop,IT Support,endpoint,no,medium,Standard user workstation

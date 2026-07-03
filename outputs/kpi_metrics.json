@@ -1,0 +1,10 @@
+{
+  "total_alerts": 5,
+  "highest_severity": "Critical",
+  "recommended_status": "Declare security incident",
+  "generated_from": [
+    "auth_events.csv",
+    "web_access_events.csv",
+    "endpoint_events.csv"
+  ]
+}

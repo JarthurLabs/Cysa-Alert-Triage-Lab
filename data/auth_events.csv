@@ -1,0 +1,27 @@
+timestamp,user,src_ip,geo,event_type,app,mfa_result,device,notes
+2026-06-14T08:10:00Z,maria.santos,198.51.100.20,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:17:00Z,devon.lee,198.51.100.21,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:24:00Z,nina.patel,198.51.100.22,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:31:00Z,omar.reed,198.51.100.23,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:38:00Z,jamal.arthur,198.51.100.24,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:45:00Z,helpdesk.bot,198.51.100.25,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T08:52:00Z,casey.nguyen,198.51.100.26,US,login_success,vpn,approved,managed_laptop,normal business login
+2026-06-14T09:20:00Z,maria.santos,198.51.100.80,US,login_failure,client_portal,not_prompted,managed_laptop,likely typo
+2026-06-14T09:53:00Z,devon.lee,198.51.100.81,US,login_failure,client_portal,not_prompted,managed_laptop,likely typo
+2026-06-14T09:55:00Z,maria.santos,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T09:57:00Z,devon.lee,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T09:59:00Z,nina.patel,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:01:00Z,omar.reed,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:03:00Z,jamal.arthur,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:05:00Z,helpdesk.bot,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:07:00Z,casey.nguyen,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:09:00Z,li.chen,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:11:00Z,sarah.mills,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:13:00Z,mike.brown,203.0.113.77,Unknown,login_failure,vpn,not_prompted,unknown,bad password
+2026-06-14T10:26:00Z,jamal.arthur,198.51.100.82,US,login_failure,client_portal,not_prompted,managed_laptop,likely typo
+2026-06-14T10:30:00Z,maria.santos,203.0.113.77,Unknown,mfa_push,vpn,denied,unknown,unexpected MFA push denied by user
+2026-06-14T10:33:00Z,maria.santos,203.0.113.77,Unknown,mfa_push,vpn,denied,unknown,unexpected MFA push denied by user
+2026-06-14T10:36:00Z,maria.santos,203.0.113.77,Unknown,mfa_push,vpn,denied,unknown,unexpected MFA push denied by user
+2026-06-14T10:41:00Z,maria.santos,203.0.113.77,Unknown,login_success,vpn,approved,unknown,MFA approved after repeated denials
+2026-06-14T10:52:00Z,maria.santos,198.51.100.22,US,login_success,client_portal,approved,managed_laptop,legitimate user later confirms this was her device
+2026-06-14T10:59:00Z,omar.reed,198.51.100.83,US,login_failure,client_portal,not_prompted,managed_laptop,likely typo

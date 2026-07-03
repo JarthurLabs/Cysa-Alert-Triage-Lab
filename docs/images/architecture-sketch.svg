@@ -1,0 +1,35 @@
+<svg width="920" height="470" viewBox="0 0 920 470" xmlns="http://www.w3.org/2000/svg">
+  <rect width="920" height="470" fill="#fffaf0"/>
+  <text x="40" y="45" font-family="Verdana" font-size="26" font-weight="700" fill="#243b53">HarborCare lab - rough environment sketch</text>
+  <text x="42" y="72" font-family="Verdana" font-size="13" fill="#52606d">drawn as a working note, not a perfect architecture diagram</text>
+  <g stroke="#334e68" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M170 128 C230 122, 250 170, 210 205 C160 240, 92 220, 88 172 C84 136, 124 118, 170 128" fill="#d9eafd"/>
+    <path d="M365 145 L515 140 L528 230 L350 236 Z" fill="#e8f5e9"/>
+    <path d="M675 135 L828 158 L806 250 L650 228 Z" fill="#fff3cd"/>
+    <path d="M360 318 L505 315 L522 390 L343 398 Z" fill="#fce4ec"/>
+  </g>
+  <g font-family="Verdana" fill="#102a43">
+    <text x="122" y="160" font-size="18" font-weight="700">Remote users</text>
+    <text x="115" y="185" font-size="13">VPN + MFA</text>
+    <text x="385" y="176" font-size="18" font-weight="700">Client portal</text>
+    <text x="382" y="202" font-size="13">web + admin routes</text>
+    <text x="690" y="177" font-size="18" font-weight="700">App server</text>
+    <text x="682" y="204" font-size="13">endpoint telemetry</text>
+    <text x="382" y="356" font-size="18" font-weight="700">Database</text>
+    <text x="376" y="380" font-size="13">internal only</text>
+  </g>
+  <g stroke="#627d98" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M230 175 C280 175, 315 180, 355 185"/>
+    <path d="M528 185 C590 178, 620 180, 655 185"/>
+    <path d="M435 236 C437 275, 436 292, 434 318"/>
+  </g>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#627d98" />
+    </marker>
+  </defs>
+  <g font-family="Verdana" font-size="13">
+    <rect x="42" y="420" width="835" height="28" rx="8" fill="#e3f2fd" stroke="#90caf9"/>
+    <text x="58" y="439" fill="#243b53">Investigation focus: auth behavior -> web access -> endpoint evidence -> vulnerability context -> response plan</text>
+  </g>
+</svg>

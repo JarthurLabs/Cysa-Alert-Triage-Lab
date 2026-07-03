@@ -1,0 +1,6 @@
+timestamp,host,user,process,command_line,parent_process,network_connection,hash,notes
+2026-06-14T08:30:00Z,HC-LT-044,devon.lee,chrome.exe,chrome.exe --profile-directory=Default,explorer.exe,none,-,normal
+2026-06-14T08:52:00Z,HC-SRV-APP01,svc_deploy,backup_agent.exe,backup_agent.exe --scheduled,services.exe,10.10.4.15:443,abc114,scheduled backup
+2026-06-14T10:50:00Z,HC-SRV-APP01,maria.santos,powershell.exe,powershell.exe -NoP -EncodedCommand <redacted training string>,w3wp.exe,203.0.113.77:443,def338,suspicious encoded command from web worker context
+2026-06-14T10:51:00Z,HC-SRV-APP01,maria.santos,cmd.exe,cmd.exe /c whoami && hostname,powershell.exe,none,-,basic host discovery pattern
+2026-06-14T10:54:00Z,HC-SRV-APP01,svc_app,7z.exe,7z.exe a reports_tmp.zip C:\App\Reports\*.csv,cmd.exe,none,7z001,archive creation after suspicious access

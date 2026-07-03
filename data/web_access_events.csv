@@ -1,0 +1,30 @@
+timestamp,src_ip,user,method,path,status,bytes,user_agent,asset
+2026-06-14T08:20:00Z,198.51.100.20,maria.santos,GET,/cases,200,2339,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:25:00Z,198.51.100.21,maria.santos,GET,/settings/profile,200,1744,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:30:00Z,198.51.100.22,nina.patel,GET,/cases,200,7745,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:35:00Z,198.51.100.23,nina.patel,GET,/api/cases/search,200,2522,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:40:00Z,198.51.100.24,maria.santos,GET,/api/cases/search,200,1682,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:45:00Z,198.51.100.25,jamal.arthur,GET,/cases/4821,200,2525,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:50:00Z,198.51.100.26,helpdesk.bot,GET,/cases/4821,200,2096,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T08:55:00Z,198.51.100.27,helpdesk.bot,GET,/dashboard,200,3606,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:00:00Z,198.51.100.20,jamal.arthur,GET,/cases,200,1526,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:05:00Z,198.51.100.21,helpdesk.bot,GET,/cases,200,1137,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:10:00Z,198.51.100.22,helpdesk.bot,GET,/logout,200,4186,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:15:00Z,198.51.100.23,jamal.arthur,GET,/cases/4821,200,4728,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:20:00Z,198.51.100.24,nina.patel,GET,/logout,200,4642,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:25:00Z,198.51.100.25,maria.santos,GET,/cases,200,5026,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:30:00Z,198.51.100.26,helpdesk.bot,GET,/api/cases/search,200,3896,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:35:00Z,198.51.100.27,nina.patel,GET,/cases/4821,200,1814,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:40:00Z,198.51.100.20,helpdesk.bot,GET,/cases,200,4882,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:45:00Z,198.51.100.21,maria.santos,GET,/cases,200,4351,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:50:00Z,198.51.100.22,helpdesk.bot,GET,/logout,200,1180,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T09:55:00Z,198.51.100.23,devon.lee,GET,/dashboard,200,3238,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:00:00Z,198.51.100.24,devon.lee,GET,/api/cases/search,200,7832,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:05:00Z,198.51.100.25,helpdesk.bot,GET,/api/cases/search,200,2015,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:10:00Z,198.51.100.26,nina.patel,GET,/cases/4821,200,5362,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:15:00Z,198.51.100.27,nina.patel,GET,/dashboard,200,1975,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:20:00Z,198.51.100.20,nina.patel,GET,/cases/4821,200,6770,Mozilla/5.0 Chrome ManagedDevice,client-portal
+2026-06-14T10:45:00Z,203.0.113.77,maria.santos,GET,/admin,200,4100,curl/8.1,client-portal
+2026-06-14T10:46:00Z,203.0.113.77,maria.santos,GET,/admin/users/export.csv,200,188420,curl/8.1,client-portal
+2026-06-14T10:48:00Z,203.0.113.77,maria.santos,POST,/api/reporting/job,201,1040,python-requests/2.31,client-portal
+2026-06-14T10:49:00Z,203.0.113.77,maria.santos,GET,/download/reports/nightly.zip,200,942012,python-requests/2.31,client-portal

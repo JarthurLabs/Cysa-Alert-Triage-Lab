@@ -1,0 +1,3 @@
+# Core scripts use Python standard library only.
+# Optional, for local test convenience:
+pytest>=8.0
