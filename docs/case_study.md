@@ -1,4 +1,4 @@
-# Case Study - HarborCare Suspicious Access Review
+# Case Study - HarborCare SOC Alert Triage Review
 
 ## The starting point
 

@@ -44,6 +44,21 @@ My first incident report was mostly alert names, MITRE mappings, and log evidenc
 
 I added an executive summary, a plain-English risk explanation, and a short containment plan. I kept the technical evidence, but I stopped leading with it.
 
+
+## Iteration 4 - I reconsidered the MFA threshold
+
+My first MFA fatigue idea was too blunt:
+
+> Alert on 2 denied prompts followed by 1 approval.
+
+That catches real risk, but it can also catch normal behavior. A user might deny a prompt because they were not ready, had a bad phone signal, or tapped the wrong option.
+
+### Correction
+
+I kept the alert, but I changed how I treated it. Two or three denied prompts are a signal, not a full conclusion. I only treated the case as high confidence after the MFA activity lined up with the same source IP, a successful VPN login, scripted export behavior, and endpoint evidence.
+
+That was a useful lesson: sometimes the right fix is not only changing the rule. It is changing how much confidence I assign to the rule.
+
 ## What I learned
 
 - Detection logic needs tuning, not just writing.

@@ -1,36 +1,69 @@
 <div align="center">
 
-# HarborCare Alert Triage Lab
+# HarborCare SOC Alert Triage Lab
 
 **A hands-on blue-team portfolio project for CySA+-level skills**  
-Security operations + vulnerability prioritization + incident response + plain-English reporting
+Security operations + alert triage + vulnerability prioritization + incident response + plain-English reporting
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Dataset](https://img.shields.io/badge/Dataset-Synthetic-lightgrey) ![Focus](https://img.shields.io/badge/Focus-Defensive%20Security-green) ![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue) ![Dataset](https://img.shields.io/badge/Dataset-Synthetic-lightgrey) ![Focus](https://img.shields.io/badge/Focus-Defensive%20Security-green) ![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-brightgreen) ![SOC](https://img.shields.io/badge/SOC-Alert%20Triage-orange)
 
 </div>
 
 ---
 
-## Why I built this
+## What this project demonstrates
 
-I wanted a project that felt closer to the work a junior security analyst might actually do: review messy logs, separate noise from risk, explain why something matters, and recommend the next action without sounding dramatic.
+![Example SOC alert](docs/images/screenshot-example-alert.png)
 
-This is not an exploit lab. It is a defensive investigation using synthetic data from a fictional healthcare SaaS company called **HarborCare**. The scenario is simple on purpose: an employee account shows signs of password spraying, MFA fatigue, suspicious admin export activity, and risky endpoint behavior on an application server.
+This project is a small SOC-style investigation using synthetic logs from a fictional healthcare SaaS company called **HarborCare**. I built it to show how I would move from raw alerts to a defensible analyst decision: what happened, why it matters, what evidence supports it, and what I would recommend next.
 
-The goal was to show practical CySA+-style skills without pretending to be a senior incident responder.
+I kept the scope realistic for a recent CySA+ certificate holder. This is not an exploit lab, and it is not meant to make me look like a senior incident responder. The point is to show practical analyst habits: log review, alert triage, basic detection logic, vulnerability prioritization, incident documentation, and clear communication.
 
 ---
 
-## What this project demonstrates
+## Skills used
 
-| Skill area | What I did in the project | Where to look |
-|---|---|---|
-| Security operations | Parsed auth, web, and endpoint logs; wrote detection logic; triaged alerts | `src/analyze_security_events.py`, `rules/detection_rules.yml` |
-| Vulnerability management | Prioritized findings using CVSS plus business context, exposure, exploitability, and asset value | `src/prioritize_vulnerabilities.py`, `outputs/prioritized_vulnerabilities.csv` |
-| Incident response | Built an evidence timeline, recommended containment, and documented lessons learned | `docs/incident_report.md`, `docs/analyst_journal.md` |
-| Reporting and communication | Wrote a technical report and a non-technical explanation | `docs/nontechnical_explainer.md` |
-| Python scripting | Used standard-library Python so the project is easy to run and review | `src/` |
-| Detection tuning | Documented where my first logic was too noisy and how I corrected it | `docs/analyst_journal.md` |
+| Skill | How it shows up here |
+|---|---|
+| Log analysis | Reviewed synthetic VPN, MFA, web access, and endpoint logs. |
+| Alert triage | Separated normal noise from suspicious patterns and chained evidence. |
+| Incident documentation | Wrote a technical incident report and a plain-English explainer. |
+| MITRE ATT&CK | Mapped suspicious behaviors to relevant ATT&CK techniques. |
+| Vulnerability prioritization | Ranked findings using CVSS plus exposure, exploitability, and business context. |
+| Python | Parsed CSV data, generated alert summaries, scored vulnerabilities, and produced reports. |
+| Detection engineering | Built and tuned simple detection logic instead of relying only on raw log volume. |
+| Security reporting | Explained risk, impact, and next steps in a way a non-technical person could follow. |
+
+**Estimated time to build/recreate:** ~20 hours over two weeks.  
+I would adjust this line if I spend more time extending the lab with Splunk, Elastic, or a video walkthrough.
+
+---
+
+## Quick visual tour
+
+| Raw alert output | Terminal run |
+|---|---|
+| ![CSV alert output](docs/images/screenshot-csv-output.png) | ![Terminal run](docs/images/screenshot-terminal-run.png) |
+
+| Incident report | Project folder |
+|---|---|
+| ![Incident report screenshot](docs/images/screenshot-report-excerpt.png) | ![Folder structure screenshot](docs/images/screenshot-folder-structure.png) |
+
+| Timeline | Risk heatmap |
+|---|---|
+| ![Incident timeline](docs/images/incident-timeline.png) | ![Risk heatmap](docs/images/risk-heatmap.png) |
+
+---
+
+## Why I built this
+
+A lot of beginner cybersecurity projects either look too simple or try to look more advanced than they really are. I wanted this one to sit in the middle: professional enough for a recruiter to skim, but honest enough that I could explain every line in an interview.
+
+The scenario is simple on purpose: an employee account shows signs of password spraying, MFA fatigue, suspicious admin export activity, and risky endpoint behavior on an application server.
+
+The investigation starts with one basic question:
+
+> Is this just noisy authentication activity, or is there enough evidence to declare an incident?
 
 ---
 
@@ -46,9 +79,22 @@ The goal was to show practical CySA+-style skills without pretending to be a sen
 - Endpoint logs are available for the app server.
 - Vulnerability scan output exists, but it needs prioritization.
 
-The case starts with a basic question:
+---
 
-> Is this just noisy authentication activity, or is there enough evidence to declare an incident?
+## One example SOC alert
+
+| Field | Detail |
+|---|---|
+| Alert | MFA fatigue pattern followed by approval |
+| Severity | High |
+| Source IP | 203.0.113.77 |
+| Affected user | maria.santos |
+| Evidence | 3 denied MFA prompts before an approved VPN login from the same source and an unknown device. |
+| Reason fired | Repeated MFA prompts followed by approval can indicate MFA fatigue, especially when it follows password spraying. |
+| Recommended action | Revoke sessions, confirm with the user, reset password, review exports, and add MFA push limits / number matching. |
+| MITRE ATT&CK | T1621 - Multi-Factor Authentication Request Generation |
+
+I would not declare an incident from this one alert alone. What made the case stronger was the chain: password spray activity, MFA fatigue, successful VPN login, scripted admin export, and suspicious endpoint process behavior.
 
 ---
 
@@ -119,6 +165,12 @@ flowchart LR
 
 ### Vulnerability priority view
 
+The first version was basically a CVSS view. It helped, but it did not explain why an internet-facing app server was more urgent than a quieter internal finding.
+
+![Early heatmap](docs/images/early-risk-heatmap.png)
+
+The improved version adds business and exposure context.
+
 ![Risk heatmap](docs/images/risk-heatmap.png)
 
 ---
@@ -127,9 +179,9 @@ flowchart LR
 
 The first version of my password-spray logic was too sensitive. I flagged three failed logins in ten minutes, but that caught normal user mistakes. I changed the logic to focus on one source IP failing across five or more unique users in twenty minutes.
 
-That correction made the project better because it moved the rule from “technically true” to “actually useful for an analyst.”
+I also reconsidered the MFA threshold. My first idea was to treat a few denied prompts followed by approval as high confidence by itself. That was too aggressive. The alert became much more meaningful only after it lined up with the same risky source IP, the successful VPN login, scripted export activity, and endpoint evidence.
 
-I kept the mistake in `docs/analyst_journal.md` because I think the tuning process is more honest than pretending the first idea was perfect.
+Those corrections made the project better because they moved the work from “technically true” to “actually useful for an analyst.” I kept the mistakes in `docs/analyst_journal.md` because the tuning process is more honest than pretending the first idea was perfect.
 
 ---
 

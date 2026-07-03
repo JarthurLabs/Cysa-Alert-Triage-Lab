@@ -1,4 +1,4 @@
-# Non-Technical Explainer - HarborCare Alert Triage Lab
+# Non-Technical Explainer - HarborCare SOC Alert Triage Lab
 
 ## The simple version
 
