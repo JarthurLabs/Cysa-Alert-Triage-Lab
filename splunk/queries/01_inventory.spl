@@ -1,0 +1,4 @@
+index=attack_lab sourcetype=XmlWinEventLog
+| stats count min(_time) AS first_seen max(_time) AS last_seen values(Computer) AS computers by EventCode
+| convert ctime(first_seen) ctime(last_seen)
+| sort EventCode
