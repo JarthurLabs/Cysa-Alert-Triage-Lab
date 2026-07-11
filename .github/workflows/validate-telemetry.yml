@@ -1,0 +1,36 @@
+name: Validate public telemetry
+
+on:
+  push:
+    paths:
+      - "data/public/splunk_attack_data/**"
+      - "src/validate_public_telemetry.py"
+      - "tests/test_public_telemetry.py"
+      - ".github/workflows/validate-telemetry.yml"
+  pull_request:
+    paths:
+      - "data/public/splunk_attack_data/**"
+      - "src/validate_public_telemetry.py"
+      - "tests/test_public_telemetry.py"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run telemetry tests
+        run: python -m unittest discover -s tests -p "test_public_telemetry.py" -v
+      - name: Rebuild validation outputs
+        run: |
+          python src/validate_public_telemetry.py \
+            data/public/splunk_attack_data/explorer_spawns_windows-sysmon.log \
+            --json-out outputs/public_telemetry_summary.json \
+            --markdown-out outputs/public_telemetry_summary.md
+      - name: Verify generated outputs are current
+        run: git diff --exit-code -- outputs/public_telemetry_summary.json outputs/public_telemetry_summary.md
