@@ -1,0 +1,7 @@
+index=attack_lab sourcetype=XmlWinEventLog (EventCode=1 OR EventID=1)
+ParentImage="*\\explorer.exe" Image="*\\powershell.exe"
+| regex CommandLine=".*?\\s{50,}.*"
+| regex CommandLine="(?i)(?:^|\\s)-(?:e|en|enc|encodedcommand)\\s+[A-Za-z0-9+/=]{5,}"
+| eval detection="Explorer child with long padding and encoded PowerShell"
+| table _time Computer User ParentImage Image CommandLine ProcessGuid ParentProcessGuid detection
+| sort 0 _time
