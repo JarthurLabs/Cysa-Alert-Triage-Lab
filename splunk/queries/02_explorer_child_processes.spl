@@ -1,0 +1,4 @@
+index=attack_lab sourcetype=XmlWinEventLog (EventCode=1 OR EventID=1)
+ParentImage="*\\explorer.exe" (Image="*\\powershell.exe" OR Image="*\\cmd.exe")
+| table _time Computer User ParentImage Image CommandLine ProcessGuid ParentProcessGuid
+| sort 0 _time
