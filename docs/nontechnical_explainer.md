@@ -20,7 +20,7 @@ After that login, the same suspicious source accessed admin export pages in the 
 
 Finally, the app server showed suspicious command activity. That made the case serious enough to treat as a likely incident.
 
-## What the project proves
+## What the project demonstrates
 
 It shows that I can:
 
@@ -31,25 +31,6 @@ It shows that I can:
 - Recommend practical containment and recovery steps.
 - Document mistakes and improve the detection logic.
 
-## How to explain the project in an interview
-
-You can say:
-
-> This is a defensive security project built around a fictional SaaS environment. Nicholas created synthetic authentication, web, endpoint, asset, and vulnerability data. He wrote Python scripts to identify suspicious login behavior, MFA fatigue, scripted admin exports, and suspicious endpoint process activity. He also built a risk model to prioritize vulnerabilities using more than CVSS alone. The main point of the project is not that he is claiming to be an expert incident responder. It is that he can think like an analyst, follow evidence, tune detections, communicate clearly, and recommend next steps.
-
-## Why recruiters may care
-
-Recruiters and hiring managers often want proof that a candidate can do more than memorize certification terms. This project gives them something concrete to review:
-
-- Code
-- Sample data
-- Detection rules
-- Reports
-- Visuals
-- Lessons learned
-
-It also connects well to security analyst, SOC analyst, vulnerability analyst, IAM/security operations, GRC, and security implementation roles.
-
 ## The main takeaway
 
-This project shows a confident beginner-to-intermediate analyst mindset: careful, structured, honest about limitations, and focused on business impact.
+This project demonstrates a structured, evidence-based approach to alert triage, detection tuning, vulnerability prioritization, and security communication while remaining clear about the limitations of synthetic data.
