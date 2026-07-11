@@ -1,0 +1,5 @@
+index=attack_lab sourcetype=XmlWinEventLog (EventCode=1 OR EventID=1)
+ParentImage="*\\explorer.exe" (Image="*\\powershell.exe" OR Image="*\\cmd.exe")
+| eval confidence=if(match(CommandLine,"\\s{50,}") AND match(CommandLine,"(?i)(?:^|\\s)-(?:e|en|enc|encodedcommand)\\s+[A-Za-z0-9+/=]{5,}"),"high","lower")
+| sort 0 _time
+| table _time Computer User ParentImage Image CommandLine confidence ProcessGuid ParentProcessGuid
