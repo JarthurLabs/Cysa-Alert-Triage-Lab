@@ -17,7 +17,7 @@ Security operations + alert triage + vulnerability prioritization + incident res
 
 This project is a small SOC-style investigation using synthetic logs from a fictional healthcare SaaS company called **HarborCare**. I built it to show how I would move from raw alerts to a defensible analyst decision: what happened, why it matters, what evidence supports it, and what I would recommend next.
 
-I kept the scope realistic for my current Soc Analyst knowledge and will iterate on this in the future. This is not an exploit lab, and it is not meant to make me look like a senior incident responder. The point is to show practical analyst habits: log review, alert triage, basic detection logic, vulnerability prioritization, incident documentation, and clear communication.
+The scope is intentionally focused on junior SOC workflows. This is not an exploit lab. The project demonstrates practical analyst habits: log review, alert triage, basic detection logic, vulnerability prioritization, incident documentation, and clear communication.
 
 ---
 
@@ -33,9 +33,6 @@ I kept the scope realistic for my current Soc Analyst knowledge and will iterate
 | Python | Parsed CSV data, generated alert summaries, scored vulnerabilities, and produced reports. |
 | Detection engineering | Built and tuned simple detection logic instead of relying only on raw log volume. |
 | Security reporting | Explained risk, impact, and next steps in a way a non-technical person could follow. |
-
-**Estimated time to build/recreate:** ~20 hours over two weeks.  
-I would adjust this line if I spend more time extending the lab with Splunk, Elastic, or a video walkthrough.
 
 ---
 
@@ -57,7 +54,7 @@ I would adjust this line if I spend more time extending the lab with Splunk, Ela
 
 ## Why I built this
 
-A lot of beginner cybersecurity projects either look too simple or try to look more advanced than they really are. I wanted this one to sit in the middle: professional enough for a recruiter to skim, but honest enough that I could explain every line in an interview.
+A lot of beginner cybersecurity projects either look too simple or try to look more advanced than they really are. I wanted this project to remain realistic, explainable, and transparent about its limitations.
 
 The scenario is simple on purpose: an employee account shows signs of password spraying, MFA fatigue, suspicious admin export activity, and risky endpoint behavior on an application server.
 
@@ -113,7 +110,7 @@ I would not declare an incident from this one alert alone. What made the case st
 ## How to run it
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/JarthurLabs/Cysa-Alert-Triage-Lab.git
 cd cysa-alert-triage-lab
 python3 src/analyze_security_events.py
 python3 src/prioritize_vulnerabilities.py
@@ -193,7 +190,7 @@ Those corrections made the project better because they moved the work from “te
 
 ---
 
-## What I would improve next since Rome wasn't built in a day
+## Planned improvements
 
 - Add a small Splunk or Elastic version of the same detections.
 - Convert the detection notes into formal Sigma rules.
