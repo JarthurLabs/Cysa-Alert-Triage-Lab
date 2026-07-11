@@ -1,0 +1,72 @@
+{
+  "source_file": "explorer_spawns_windows-sysmon.log",
+  "sha256": "9200692ad74037b5234fe6f7da733d3e416b0ea8bb7f6d8ebb5bd16fc39b8b22",
+  "expected_sha256": "9200692ad74037b5234fe6f7da733d3e416b0ea8bb7f6d8ebb5bd16fc39b8b22",
+  "integrity_verified": true,
+  "total_events": 4,
+  "broad_explorer_child_candidates": 4,
+  "tuned_encoded_powershell_escalations": 2,
+  "lower_confidence_candidates_excluded": 2,
+  "computers": [
+    "ar-win-3"
+  ],
+  "event_ids": [
+    1
+  ],
+  "tuned_events": [
+    {
+      "event_id": 1,
+      "time_utc": "2025-03-24T15:11:49.227455600Z",
+      "computer": "ar-win-3",
+      "user": "AR-WIN-3\\Administrator",
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "parent_image": "C:\\Windows\\explorer.exe",
+      "process_guid": "{e8747bb8-7635-67e1-3964-000000004103}",
+      "parent_process_guid": "{e8747bb8-6cb9-67e1-2463-000000004103}",
+      "command_line_length": 2687,
+      "has_50_plus_space_padding": true,
+      "has_encoded_command_switch": true
+    },
+    {
+      "event_id": 1,
+      "time_utc": "2025-03-24T14:34:26.227690000Z",
+      "computer": "ar-win-3",
+      "user": "AR-WIN-3\\Administrator",
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "parent_image": "C:\\Windows\\explorer.exe",
+      "process_guid": "{e8747bb8-6d72-67e1-4d63-000000004103}",
+      "parent_process_guid": "{e8747bb8-6cb9-67e1-2463-000000004103}",
+      "command_line_length": 2687,
+      "has_50_plus_space_padding": true,
+      "has_encoded_command_switch": true
+    }
+  ],
+  "excluded_events": [
+    {
+      "event_id": 1,
+      "time_utc": "2025-03-24T14:49:00.306273800Z",
+      "computer": "ar-win-3",
+      "user": "AR-WIN-3\\Administrator",
+      "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "parent_image": "C:\\Windows\\explorer.exe",
+      "process_guid": "{e8747bb8-70dc-67e1-a963-000000004103}",
+      "parent_process_guid": "{e8747bb8-6cb9-67e1-2463-000000004103}",
+      "command_line_length": 60,
+      "has_50_plus_space_padding": false,
+      "has_encoded_command_switch": false
+    },
+    {
+      "event_id": 1,
+      "time_utc": "2025-03-24T14:31:36.813396000Z",
+      "computer": "ar-win-3",
+      "user": "AR-WIN-3\\Administrator",
+      "image": "C:\\Windows\\System32\\cmd.exe",
+      "parent_image": "C:\\Windows\\explorer.exe",
+      "process_guid": "{e8747bb8-6cc8-67e1-3063-000000004103}",
+      "parent_process_guid": "{e8747bb8-6cb9-67e1-2463-000000004103}",
+      "command_line_length": 142,
+      "has_50_plus_space_padding": false,
+      "has_encoded_command_switch": false
+    }
+  ]
+}
