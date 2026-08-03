@@ -125,6 +125,11 @@ def build_summary(path: Path) -> dict:
 
 
 def write_markdown(summary: dict, path: Path) -> None:
+    timeline = sorted(
+        [(event, "Escalate") for event in summary["tuned_events"]]
+        + [(event, "Keep as context") for event in summary["excluded_events"]],
+        key=lambda item: item[0]["time_utc"],
+    )
     lines = [
         "# Public Telemetry Validation Results",
         "",
@@ -138,9 +143,31 @@ def write_markdown(summary: dict, path: Path) -> None:
         "The tuned rule requires both a run of at least 50 whitespace characters and an encoded-command switch. "
         "That additional context reduces the broad four-event candidate set to two high-confidence escalations.",
         "",
-        "These results were reproduced with the repository's Python validator. SPL searches are supplied for "
-        "Splunk ingestion, but Splunk screenshots remain a separate manual validation step.",
+        "## Sanitized event timeline",
+        "",
+        "This table is generated directly from the pinned Sysmon file. It omits the encoded payload while keeping the fields used to explain the triage decision.",
+        "",
+        "| Time (UTC) | Child process | Command length | 50+ spaces | Encoded switch | Triage |",
+        "|---|---|---:|:---:|:---:|---|",
     ]
+    for event, triage in timeline:
+        lines.append(
+            "| {time} | `{image}` | {length} | {padding} | {encoded} | {triage} |".format(
+                time=event["time_utc"],
+                image=event["image"].replace("\\", "/").rsplit("/", 1)[-1],
+                length=event["command_line_length"],
+                padding="yes" if event["has_50_plus_space_padding"] else "no",
+                encoded="yes" if event["has_encoded_command_switch"] else "no",
+                triage=triage,
+            )
+        )
+    lines.extend(
+        [
+            "",
+            "These results were reproduced with the repository's Python validator. SPL searches are supplied for "
+            "Splunk ingestion, but Splunk screenshots remain a separate manual validation step.",
+        ]
+    )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
