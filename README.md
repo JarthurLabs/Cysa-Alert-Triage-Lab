@@ -5,6 +5,7 @@
 **Captured attack-simulation telemetry + detection tuning + Splunk SPL + reproducible validation**
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+[![Validate public telemetry](https://github.com/JarthurLabs/Cysa-Alert-Triage-Lab/actions/workflows/validate-telemetry.yml/badge.svg)](https://github.com/JarthurLabs/Cysa-Alert-Triage-Lab/actions/workflows/validate-telemetry.yml)
 ![Telemetry](https://img.shields.io/badge/Telemetry-Splunk%20Attack%20Data-purple)
 ![Focus](https://img.shields.io/badge/Focus-SOC%20Triage-orange)
 ![Integrity](https://img.shields.io/badge/SHA--256-Verified-brightgreen)
@@ -12,9 +13,18 @@
 
 </div>
 
+## Five-minute reviewer path
+
+1. Verify the [pinned source, license, and SHA-256](data/public/splunk_attack_data/PROVENANCE.md).
+2. Read the generated [four-event timeline](outputs/public_telemetry_summary.md) to see why two events escalate and two stay as context.
+3. Compare the [broad and tuned SPL searches](splunk/queries/) with the [detection rationale](rules/encoded_powershell_detection.md).
+4. Finish with the [analyst report](docs/real_telemetry_triage_report.md) and its stated limits.
+
+It is a four-event dataset, so nobody needs to pretend there is a haystack just to make the needle look impressive.
+
 ## What changed in version 2
 
-The primary case now uses captured Windows Sysmon telemetry from the official
+The main case uses captured Windows Sysmon telemetry from the official
 [Splunk Attack Data](https://github.com/splunk/attack_data) project instead of
 fabricated authentication, web, and endpoint CSVs. The telemetry was generated
 in Splunk Attack Range during a controlled attack simulation.

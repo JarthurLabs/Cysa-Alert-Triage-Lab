@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -13,6 +14,7 @@ from validate_public_telemetry import (  # noqa: E402
     is_tuned_encoded_powershell,
     load_events,
     sha256_file,
+    write_markdown,
 )
 
 
@@ -40,6 +42,19 @@ class PublicTelemetryTests(unittest.TestCase):
         summary = build_summary(LOG)
         self.assertTrue(summary["integrity_verified"])
         self.assertEqual(summary["lower_confidence_candidates_excluded"], 2)
+
+    def test_markdown_timeline_is_derived_and_payload_safe(self):
+        summary = build_summary(LOG)
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "summary.md"
+            write_markdown(summary, output)
+            markdown = output.read_text(encoding="utf-8")
+
+        event_times = [event.time_utc for event in load_events(LOG)]
+        self.assertTrue(all(markdown.count(time) == 1 for time in event_times))
+        self.assertEqual(markdown.count("| Escalate |"), 2)
+        self.assertEqual(markdown.count("| Keep as context |"), 2)
+        self.assertNotIn("-encodedcommand", markdown.lower())
 
 
 if __name__ == "__main__":
